@@ -11,5 +11,4 @@ export default {
 </script>
 
 <style>
-/* Stil dosyalarınızı buraya ekleyebilirsiniz */
 </style>

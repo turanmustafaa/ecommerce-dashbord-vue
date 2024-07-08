@@ -119,10 +119,6 @@ export default {
       return Math.floor(val1 * val2);
     };
 
-    watch(tableData.value, () => {
-      console.log(tableData.value, "tab");
-    });
-
     return {
       tableData,
       compareDates,

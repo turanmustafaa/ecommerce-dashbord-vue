@@ -1,8 +1,8 @@
 <template>
     <section class="w-full">
         <SelectDay />
-    <GraphChart />
-    <Table v-if="tableData.length" />
+        <GraphChart />
+        <Table v-if="tableData.length" />
     </section>
 </template>
 

@@ -51,7 +51,7 @@ const actions = {
         }
         },
         async getTableData({commit}, tabledataDates){
-            console.log(tabledataDates,'tabledatadates')
+
             let requestData = {
             "marketplace": localStorage.getItem('marketPlace') ? localStorage.getItem('marketPlace') : this.state.marketPlace,
             "sellerId": localStorage.getItem('sellerId') ? localStorage.getItem('sellerId') : this.state.sellerId,
@@ -75,7 +75,7 @@ const actions = {
             "skuList" : resData
           })
           const resSkulist = await skulist.data?.Data
-          console.log(resSkulist,'resdata sku')
+          
           commit('SET_TABLE_DATA', resSkulist);
     
         },

@@ -30,13 +30,11 @@ export default {
     const graphData = computed(() => store.getters.graphDataGetter);
 
     const clickHandler =  (event, chartContext, config) => {
-        console.log("click")
         handleColumnClick(config)
     }
     const handleColumnClick = (config) => {
-        console.log(config,'config')
       const date = chartOptions.value.xaxis.categories[config.dataPointIndex];
-      console.log(date,'date')
+
       if (clickedColumns.value.length < 2) {
         clickedColumns.value.push(date);
       } else {
@@ -54,14 +52,9 @@ export default {
         },
         zoom: {
           enabled: true,
-          type: "x", // or 'y' for vertical zooming
+          type: "x",
           autoScaleYaxis: true,
         },
-        // events: {
-        //     handleColumnClick(config){
-        //         console.log('config')
-        //     }
-        // },
       },
       responsive: [
         {
@@ -79,8 +72,8 @@ export default {
         bar: {
           horizontal: false,
           borderRadius: 10,
-          borderRadiusApplication: "end", // 'around', 'end'
-          borderRadiusWhenStacked: "last", // 'all', 'last'
+          borderRadiusApplication: "end", 
+          borderRadiusWhenStacked: "last",
           dataLabels: {
             total: {
               enabled: false,
@@ -107,12 +100,12 @@ export default {
             return val.toFixed(2);
           },
         },
-        theme: "dark", // Set to 'dark' theme
+        theme: "dark",
         style: {
           fontSize: "14px",
           fontFamily: undefined,
-          background: "#000000", // Background color
-          color: "#FFFFFF", // Text color
+          background: "#000000", 
+          color: "#FFFFFF",
         },
       },
       xaxis: {
@@ -129,10 +122,10 @@ export default {
     });
 
     const updateChart = async () => {
-      console.log(graphData.value, "graphhhhhhhhh");
-      if (graphData.value && graphData.value.length) {
-        const categories = graphData.value.map((item) =>item.date);
 
+      if (graphData.value && graphData.value.length) {
+
+        const categories = graphData.value.map((item) =>item.date);
         const profitData = graphData.value.map((item) => item.profit);
         const fbaAmountData = graphData.value.map((item) => item.fbaAmount);
         const fbmAmountData = graphData.value.map((item) => item.fbmAmount);
@@ -147,7 +140,9 @@ export default {
         ];
 
         chartOptions.value.xaxis.categories = categories;
-      } else {
+
+      }
+      else {
         console.error("Graph data is empty or undefined");
       }
     };
@@ -156,17 +151,12 @@ export default {
       await updateChart();
     });
 
-    watch(
-      () => graphData,
-      async () => {
-        console.log("calısıyorrrrrrrrr");
+    watch(() => graphData, async () => {
         await updateChart();
-      },
-      { deep: true }
+      },{ deep: true }
     );
     watch(() => clickedColumns.value, async () => {
-      await store.dispatch('getTableData', clickedColumns.value)
-        console.log(clickedColumns.value,'clicked cols')
+        await store.dispatch('getTableData', clickedColumns.value)
         store.dispatch('setCompareDays', clickedColumns.value)
     },
      {deep: true})

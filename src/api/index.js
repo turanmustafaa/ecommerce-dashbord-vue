@@ -9,7 +9,6 @@ const apiClient = axios.create({
 });
 apiClient.interceptors.request.use(config => {
     const token = localStorage.getItem('eva_token') ? localStorage.getItem('eva_token') : store.state.token;
-    console.log(token,'token')
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

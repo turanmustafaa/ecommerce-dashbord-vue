@@ -32,8 +32,7 @@ export default {
     watch(selected, async (newVal) => {
       await store.dispatch("setSelectedDays", newVal);
       await store.dispatch("getGraphData", newVal);
-
-      console.log(newVal, "Selected days updated in store");
+      
     });
     return {
       days,

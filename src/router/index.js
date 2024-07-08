@@ -21,7 +21,6 @@ const router = createRouter({
   routes
 });
 
-// Navigasyon bekçisi
 router.beforeEach((to, from, next) => {
   const isAuthenticated = store.getters.isAuthenticated;
   if (!isAuthenticated && to.name !== 'Login') {
