@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col gap-3 items-center">
     <h1>Welcome to Eva-Chart</h1>
-    <input class="h-10 rounded-lg pl-4 w-2/4" v-model="credentials.Email" placeholder="Email" />
-    <input class="h-10 rounded-lg pl-4 w-2/4" v-model="credentials.Password" placeholder="Password" type="password" />
+    <input class="h-10 rounded-lg pl-4 w-2/4 bg-transparent border-white border" v-model="credentials.Email" placeholder="Email" />
+    <input class="h-10 rounded-lg pl-4 w-2/4 bg-transparent border-white border" v-model="credentials.Password" placeholder="Password" type="password" />
     <button @click="login">
         <span v-if="!isLoading">Login</span>
         <span v-else class="flex items-center">

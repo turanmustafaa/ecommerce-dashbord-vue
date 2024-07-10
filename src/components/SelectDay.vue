@@ -1,12 +1,12 @@
 <template>
   <div class="max-w-xs mx-auto">
-    <label for="days" class="block text-sm font-medium text-gray-700"
+    <label for="days" class="block text-sm font-medium"
       >Select Days</label
     >
     <select
       v-model="selected"
       id="days"
-      class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+      class="block w-full text-base bg-transparent border-white border px-3 py-4 rounded-3xl mt-2"
     >
       <option v-for="day in days" :key="day.value" :value="day.value">
         {{ day.text }}
